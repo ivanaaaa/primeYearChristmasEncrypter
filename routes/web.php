@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrimeYearController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/index', [PrimeYearController::class, 'index'])->name('index');
+Route::post('/handle-input', [PrimeYearController::class, 'saveChristmasDates'])->name('handleInput');
+Route::get('/prime-years', [PrimeYearController::class, 'getChristmasDays'])->name('getPrimeYearsData');
